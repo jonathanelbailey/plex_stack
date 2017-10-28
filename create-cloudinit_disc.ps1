@@ -1,4 +1,4 @@
-$ErrorActionPreference = "stop"
+$ErrorActionPreference = "Stop"
 
 $GuestAdminPassword = “P@ssw0rd”
 $path = 'c:\temp'
