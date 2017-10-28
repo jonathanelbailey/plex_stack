@@ -4,8 +4,7 @@ param(
     [validateset("1x2","2x4","4x8","8x16")]
     $vm_size,
     [validateset("ubuntu-17.10")]
-    $os,
-    [switch]$test
+    $os
 )
 
 $ErrorActionPreference = "stop"
@@ -45,7 +44,3 @@ new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
     -VHDPath $gen2_image_path -Generation 2
 set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory
 Set-VMFirmware -VMName $vm_name -EnableSecureBoot Off
-
-if ($test){
-    Get-VM -Name $vm_name | Remove-VM -Force
-}
