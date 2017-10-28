@@ -9,7 +9,7 @@ pipeline {
         
       }
       steps {
-        powershell '& $env:WORKSPACE\\test.ps1'
+        powershell '& $env:WORKSPACE\\create-vminstance.ps1 -vm_size 1x2 -os ubuntu-17.10 -test -verbose'
       }
     }
   }

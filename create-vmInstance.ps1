@@ -1,3 +1,4 @@
+[cmdletbinding()]
 param(
     [validateset("1x2","2x4","4x8","8x16")]
     $vm_size,
@@ -5,6 +6,9 @@ param(
     $os,
     [switch]$test
 )
+
+$ErrorActionPreference = "stop"
+
 switch ($vm_size) {
     "1x2"  { $memory = "2048MB"; $cpu = 1 }
     "2x4"  { $memory = "4096MB"; $cpu = 2 }
