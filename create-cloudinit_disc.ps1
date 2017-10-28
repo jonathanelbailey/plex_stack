@@ -24,8 +24,11 @@ runcmd:
  - [ useradd, -m, -p, "", magicadmin ]
  - [ chage, -d, 0, magicadmin ]
 "@
-md $work -Verbose
+
+if (!(Test-Path $work)){
+    md $work -Verbose
+}
 sc "$($work)\meta-data" ([byte[]][char[]] "$metadata") -Encoding Byte -Verbose
 sc "$($work)\user-data" ([byte[]][char[]] "$userdata") -Encoding Byte -Verbose
-Start-Process oscdimg.exe -ArgumentList $work,$metadata_iso,"-j2 -lcidata" -Wait -Verbose
+Start-Process $oscd_path -ArgumentList $work,$metadata_iso,"-j2 -lcidata" -Wait -Verbose
 Set-VMDvdDrive -VMName $env:vm_name -Path $metadata_iso -Verbose
