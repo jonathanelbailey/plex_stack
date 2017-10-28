@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         echo 'test'
-        powershell(returnStdout: true, returnStatus: true, script: '.\\test.ps1', encoding: 'utf-8')
+        powershell(returnStdout: true, returnStatus: true, script: 'dir', encoding: 'utf-8')
       }
     }
   }
