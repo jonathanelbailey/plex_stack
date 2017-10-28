@@ -27,7 +27,8 @@ write-verbose $unc_path
 $unc_archive = Join-Path $unc_path -ChildPath $image_archive -Verbose
 $archive_path = Join-Path -Path $path -ChildPath $image_archive -Verbose
 $image_path = Join-Path -Path $path -ChildPath $image -Verbose
-$gen2_image_path = $image_path + 'x' -Verbose
+$gen2_image_path = $image_path + 'x'
+write-verbose $gen2_image_path
 
 if (!(Test-Path $archive_path)){
     cp $unc_archive $archive_path -Verbose
