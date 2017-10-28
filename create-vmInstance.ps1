@@ -7,7 +7,7 @@ param(
     $os
 )
 
-$ErrorActionPreference = "stop"
+$ErrorActionPreference = "Stop"
 
 switch ($vm_size) {
     "1x2"  { $memory = 2GB; $cpu = 1 }
