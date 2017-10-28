@@ -9,8 +9,7 @@ pipeline {
         
       }
       steps {
-        echo 'test'
-        powershell '$env:WORKSPACE\test.ps1'
+        powershell '$env:WORKSPACE\\test.ps1'
       }
     }
   }
