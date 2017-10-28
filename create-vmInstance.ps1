@@ -18,7 +18,7 @@ switch ($vm_size) {
 switch ($os){
     "ubuntu-17.10" { $image = "artful-server-cloudimg-amd64.vhd" }
 }
-$image_archive = $image + 'zip'
+$image_archive = $image + '.zip'
 $path = 'c:\temp'
 $unc_path = '\\nas1.magiccityit.com\os_iso'
 $unc_archive = Join-Path $unc_path -ChildPath $image_archive
