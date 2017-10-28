@@ -47,5 +47,5 @@ set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory
 Set-VMFirmware -VMName $vm_name -EnableSecureBoot Off
 
 if ($test){
-    Get-VM -Name $vm_name | Remove-VM
+    Get-VM -Name $vm_name | Remove-VM -Force
 }
