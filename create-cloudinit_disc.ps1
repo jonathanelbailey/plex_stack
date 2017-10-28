@@ -12,18 +12,18 @@ if (!(Test-Path $oscd_path)){
 if (Test-Path $metadata_iso){
     Remove-Item $metadata_iso -Force
 }
-$metadata = @”
+$metadata = \@”
 instance-id: $((get-vm -Name $env:vm_name).VMId)
 local-hostname: $($env:vm_name)
-“@
+“\@
  
-$userdata = @”
+$userdata = \@”
 #cloud-config
 password: $($GuestAdminPassword)
 runcmd:
  – [ useradd, -m, -p, “”, magicadmin ]
  – [ chage, -d, 0, magicadmin ]
-“@
+“\@
 md $work -Verbose
 sc “$($work)\meta-data” ([byte[]][char[]] “$metadata“) -Encoding Byte -Verbose
 sc “$($work)\user-data” ([byte[]][char[]] “$userdata“) -Encoding Byte -Verbose
