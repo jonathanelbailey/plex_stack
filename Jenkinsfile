@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         echo 'test'
-        powershell(returnStdout: true, script: 'get-location')
+        powershell 'test.ps1'
       }
     }
   }
