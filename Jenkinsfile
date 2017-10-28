@@ -11,7 +11,7 @@ pipeline {
       steps {
         echo 'test'
         powershell '''get-location
-write-output ${WORKSPACE}
+write-output "workspace is ${WORKSPACE}"
 '''
       }
     }
