@@ -38,7 +38,7 @@ Convert-VHD -Path $image_path -DestinationPath $gen2_image_path `
     -VHDType Dynamic
 }
 new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
-    -VHDPath $vhd_path -Generation 2
+    -VHDPath $gen2_image_path -Generation 2
 set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory
 Set-VMFirmware -VMName $vm_name -EnableSecureBoot $false
 
