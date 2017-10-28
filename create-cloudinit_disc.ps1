@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $GuestAdminPassword = "P@ssw0rd"
 $path = 'c:\temp'
 $work = Join-Path $path -ChildPath 'work'
-$oscd_path = $path + 'oscdimg.exe'
+$oscd_path = Join-Path $path -ChildPath 'oscdimg.exe'
 $unc_path = '\\nas1.magiccityit.com\os_iso\oscdimg.exe'
 $metadata_iso = Join-Path $path -ChildPath 'metadata.iso'
 if (!(Test-Path $oscd_path)){
@@ -21,8 +21,8 @@ $userdata = @"
 #cloud-config
 password: $($GuestAdminPassword)
 runcmd:
- – [ useradd, -m, -p, "", magicadmin ]
- – [ chage, -d, 0, magicadmin ]
+ - [ useradd, -m, -p, "", magicadmin ]
+ - [ chage, -d, 0, magicadmin ]
 "@
 md $work -Verbose
 sc "$($work)\meta-data" ([byte[]][char[]] "$metadata") -Encoding Byte -Verbose
