@@ -10,7 +10,7 @@ pipeline {
       }
       steps {
         echo 'test'
-        powershell(returnStdout: true, returnStatus: true, script: 'set-content "success" test.txt')
+        powershell(returnStdout: true, returnStatus: true, script: 'test.ps1')
       }
     }
   }
