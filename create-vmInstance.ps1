@@ -1,6 +1,6 @@
 [cmdletbinding()]
 param(
-    $vm_name
+    $vm_name,
     [validateset("1x2","2x4","4x8","8x16")]
     $vm_size,
     [validateset("ubuntu-17.10")]
