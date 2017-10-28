@@ -40,7 +40,7 @@ Convert-VHD -Path $image_path -DestinationPath $gen2_image_path `
 new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
     -VHDPath $gen2_image_path -Generation 2
 set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory
-Set-VMFirmware -VMName $vm_name -EnableSecureBoot $false
+Set-VMFirmware -VMName $vm_name -EnableSecureBoot Off
 
 if ($test){
     Get-VM -Name $vm_name | Remove-VM
