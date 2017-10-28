@@ -10,9 +10,7 @@ pipeline {
       }
       steps {
         echo 'test'
-        powershell '''get-location
-ls env:
-'''
+        powershell '$env:WORKSPACE\test.ps1'
       }
     }
   }
