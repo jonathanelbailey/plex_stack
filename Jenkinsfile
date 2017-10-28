@@ -10,7 +10,9 @@ pipeline {
       }
       steps {
         echo 'test'
-        powershell 'get-location'
+        powershell '''get-location
+write-output ${WORKSPACE}
+'''
       }
     }
   }
