@@ -11,10 +11,10 @@ param(
 $ErrorActionPreference = "stop"
 
 switch ($vm_size) {
-    "1x2"  { $memory = "2048MB"; $cpu = 1 }
-    "2x4"  { $memory = "4096MB"; $cpu = 2 }
-    "4x8"  { $memory = "8192MB"; $cpu = 4 }
-    "8x16" { $memory = "16384MB"; $cpu = 8 }
+    "1x2"  { $memory = "2GB"; $cpu = 1 }
+    "2x4"  { $memory = "4GB"; $cpu = 2 }
+    "4x8"  { $memory = "8GB"; $cpu = 4 }
+    "8x16" { $memory = "16GB"; $cpu = 8 }
 }
 switch ($os){
     "ubuntu-17.10" { $image = "artful-server-cloudimg-amd64.vhd" }
