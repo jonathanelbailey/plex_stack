@@ -34,9 +34,13 @@ if (!(Test-Path $image_path)){
     Expand-Archive -Path $image_path -DestinationPath $path
 }
 if (!(test-path $gen2_image_path)){
-Convert-VHD -Path $image_path -DestinationPath $gen2_image_path `
-    -VHDType Dynamic
+    Convert-VHD -Path $image_path -DestinationPath $gen2_image_path `
+        -VHDType Dynamic
 }
+if(!(Get-VM -Name $vm_name) -and $test ){
+    Get-VM -Name $vm_name | Remove-VM
+}
+
 new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
     -VHDPath $gen2_image_path -Generation 2
 set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory
