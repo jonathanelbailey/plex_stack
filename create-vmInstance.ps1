@@ -1,5 +1,6 @@
 [cmdletbinding()]
 param(
+    $vm_name
     [validateset("1x2","2x4","4x8","8x16")]
     $vm_size,
     [validateset("ubuntu-17.10")]
@@ -32,8 +33,10 @@ if (!(Test-Path $archive_path)){
 if (!(Test-Path $image_path)){
     Expand-Archive -Path $image_path -DestinationPath $path
 }
+if (!(test-path $gen2_image_path)){
 Convert-VHD -Path $image_path -DestinationPath $gen2_image_path `
     -VHDType Dynamic
+}
 new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
     -VHDPath $vhd_path -Generation 2
 set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory
