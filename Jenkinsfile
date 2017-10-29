@@ -17,11 +17,23 @@ pipeline {
       }
     }
     stage('Build Metadata ISO') {
+      agent {
+        node {
+          label 'cloud.magiccityit.com'
+        }
+        
+      }
       steps {
         powershell(script: '& $env:WORKSPACE\\create-cloudinit_disc.ps1 4>&1', encoding: 'utf-8', returnStatus: true)
       }
     }
     stage('Start VM') {
+      agent {
+        node {
+          label 'cloud.magiccityit.com'
+        }
+        
+      }
       steps {
         powershell(script: 'start-vm $env:vm_name', returnStatus: true, returnStdout: true)
       }
