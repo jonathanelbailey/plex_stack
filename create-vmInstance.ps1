@@ -29,7 +29,7 @@ try{
         cp $unc_archive $archive_path -Verbose
     }
     if (!(Test-Path $image_path)){
-        Expand-Archive -Path $image_path -DestinationPath $path -Verbose
+        Expand-Archive -Path $image_path -Verbose
     }
 
     new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
