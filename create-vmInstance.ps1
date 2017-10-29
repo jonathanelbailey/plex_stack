@@ -3,7 +3,7 @@ param(
     $vm_name,
     [validateset("1x2","2x4","4x8","8x16")]
     $vm_size,
-    [validateset("ubuntu-17.10")]
+    [validateset("ubuntu-17.04")]
     $os
 )
 
@@ -16,7 +16,7 @@ switch ($vm_size) {
     "8x16" { $memory = 16GB; $cpu = 8 }
 }
 switch ($os){
-    "ubuntu-17.10" { $image = "artful-server-cloudimg-amd64.vhd" }
+    "ubuntu-17.04" { $image = "ubuntu-17.04-template.vhd" }
 }
 $image_archive = $image + '.zip'
 $path = 'c:\temp'
