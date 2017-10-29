@@ -16,7 +16,7 @@ switch ($vm_size) {
     "8x16" { $memory = 16GB; $cpu = 8 }
 }
 switch ($os){
-    "ubuntu-17.04" { $image = "ubuntu-17.04-template.vhd" }
+    "ubuntu-17.04" { $image = "ubuntu-17.04-template.vhdx" }
 }
 $image_archive = $image + '.zip'
 $path = 'c:\temp'
@@ -35,6 +35,7 @@ try{
     new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
         -VHDPath $image_path -Generation 1 -Verbose
     set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory -Verbose
+    start-vm -Name $vm_name
 }
 catch{
     exit 1

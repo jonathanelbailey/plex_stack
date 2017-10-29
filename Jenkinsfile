@@ -14,7 +14,6 @@ pipeline {
       }
       steps {
         powershell(script: '& $env:WORKSPACE\\create-vminstance.ps1 -vm_name $env:vm_name -vm_size $env:vm_size -os $env:os -verbose 4>&1', encoding: 'utf-8', returnStatus: true)
-        powershell(script: 'start-vm $env:vm_name', returnStatus: true, returnStdout: true)
       }
     }
   }
