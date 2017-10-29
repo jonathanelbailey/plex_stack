@@ -37,7 +37,7 @@ try{
     sc "$($work)\meta-data" ([byte[]][char[]] "$metadata") -Encoding Byte -Verbose
     sc "$($work)\user-data" ([byte[]][char[]] "$userdata") -Encoding Byte -Verbose
     Start-Process $oscd_path -ArgumentList $work,$metadata_iso,"-j2 -lcidata" -Wait -Verbose
-    Set-VMDvdDrive -VMName $env:vm_name -Path $metadata_iso -Verbose
+    Add-VMDvdDrive -VMName $env:vm_name -Path $metadata_iso -Verbose
 }
 catch{
     exit 1
