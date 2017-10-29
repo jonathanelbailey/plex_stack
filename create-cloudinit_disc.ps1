@@ -34,6 +34,12 @@ try{
     if (!(Test-Path $work)){
         md $work -Verbose
     }
+    if (Test-Path "$($work)\meta-data"){
+        rm "$($work)\meta-data"
+    }
+    if (Test-Path "$($work)\user-data"){
+        rm "$($work)\user-data"
+    }    
     sc "$($work)\meta-data" ([byte[]][char[]] "$metadata") -Encoding Byte -Verbose
     sc "$($work)\user-data" ([byte[]][char[]] "$userdata") -Encoding Byte -Verbose
     Start-Process $oscd_path -ArgumentList $work,$metadata_iso,"-j2 -lcidata" -Wait -Verbose
