@@ -33,8 +33,9 @@ try{
     }
 
     new-vm -Name $vm_name -MemoryStartupBytes $memory -SwitchName "hyper-v" `
-        -VHDPath $image_path -Generation 1 -Verbose
+        -VHDPath $image_path -Generation 2 -Verbose
     set-vm -Name $vm_name -ProcessorCount $cpu -StaticMemory -Verbose
+    Set-VMFirmware -EnableSecureBoot Off
     start-vm -Name $vm_name
 }
 catch{
